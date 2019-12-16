@@ -19,6 +19,7 @@ const SquareScreen = () => {
         }}/>
 
         <FlatList
+          style={styles.flat}
           keyExtractor={item => item}
           data={colors}
           renderItem={({ item }) => {
@@ -34,10 +35,13 @@ const SquareScreen = () => {
 };
 
 const styles = StyleSheet.create({
-container:{
-  marginTop: 20,
-
-},
+  container:{
+    flex: 1,
+    marginTop: 20,
+  },
+  flat:{
+    flex: 1,
+  }
 });
 
 export default SquareScreen;

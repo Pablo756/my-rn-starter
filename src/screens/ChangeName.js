@@ -3,15 +3,15 @@ import  { View, Text, StyleSheet, Button, TextInput} from 'react-native';
 
 const ChangeName = (props) => {
   const {params} = props.navigation.state;
-  const [text, setChange] = useState('');
+  const [name, setName] = useState('');
   const [error, setError] = useState(false);
 
 
-  saveName = () => {
-    if (text.trim() === '') {
+const saveName = () => {
+    if (name.trim() === '') {
       setError(true);
     } else {
-      params.onChangeName(text.trim());
+      params.onChangeName(name.trim());
       props.navigation.pop();
       setError(false);
     }
@@ -22,13 +22,15 @@ const ChangeName = (props) => {
       <Text style={styles.text}>Current name: {params.name}</Text>
       <TextInput
         placeholder={'input new name'}
+        autoCapitalize='none'
+        autoCorrect={false}
         style={{
           height: 40, borderColor: 'blue',
           fontSize: 20,
           borderWidth: 1, textAlign: 'center',
         }}
         onChangeText={(value) => {
-          setChange(value);
+          setName(value);
           setError(false);
         }}
       />
